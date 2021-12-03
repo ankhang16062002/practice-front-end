@@ -55,6 +55,10 @@
                         opacity: 0;
                     }
                 }
+
+                h1 {
+                    font-size: 10vw;
+                }
             }
 
             &__image {
@@ -171,7 +175,7 @@
             }
 
             transform: translateX(200px);
-            transition: transform 0.4s linear;
+            transition: transform 0.4s linner;
 
             &.active {
                 transform: translateX(0);

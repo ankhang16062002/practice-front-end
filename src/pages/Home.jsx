@@ -20,19 +20,6 @@ const Home = () => {
 
     const contentIntroduce = useRef(null)
     const contentCart = useRef(null)
-
-    //slove resize
-    useEffect(() => {
-        //resise
-        const handleResize = () => {
-            setLoad(false);
-        }
-        window.addEventListener('resize', handleResize)
-
-        return () => {
-            window.removeEventListener('resize', handleResize)
-        }
-    }, [])
     
     //solve load page
     useEffect(() => {
