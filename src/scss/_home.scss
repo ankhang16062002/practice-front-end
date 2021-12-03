@@ -175,7 +175,11 @@
             }
 
             transform: translateX(200px);
-            transition: transform 0.4s linner;
+            transition: transform 0.5s linner;
+
+            @include mobile() {
+                transform: translateX(80px);
+            }
 
             &.active {
                 transform: translateX(0);
