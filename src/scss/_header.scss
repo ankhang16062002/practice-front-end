@@ -1,0 +1,118 @@
+.header {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    .container {
+        @include flex(flex-start, space-between);
+    }
+
+    &__logo {
+        width: 3.8vw;
+        position: relative;
+        overflow: hidden;
+        border: 2px solid #000;
+        border-radius: 1px;
+        @include flex(center, flex-start);
+
+        img {
+            width: 100%;
+            transform-origin: left bottom;
+        }
+
+        img:nth-child(1) {
+            transform: translateX(100%) rotate(0);
+            transition: transform 0.8s ease-out;
+        }
+
+        img:nth-child(2) {
+            transform: translateX(100%) rotate(0);
+            transition: transform 0.8s ease-out;
+        }
+
+        &:hover {
+            border-color: transparent;
+
+            img:nth-child(1) {
+                transform:  rotate(-10deg) translateX(-100%) !important;
+                transition-delay: 0s !important;
+            }
+
+            img:nth-child(2) {
+                transform:  rotate(0) translateX(-100%) !important;
+                transition-delay: 0s !important;
+            }
+        }
+
+        @include mobile() {
+            width: 6.5vw;
+        }
+    }
+
+    &__title {
+        font-family: 'Yellowtail', cursive;
+        font-size: 1.2rem;
+        background-image: url("https://global-uploads.webflow.com/5c9c9c646cf0969b319f264f/5d265c2db3094d6f60ace83a_label.svg");
+        width: 58px;
+        height: 18px;
+        background-size: cover;
+
+        span {
+            line-height: 18px;
+        }
+
+        @include tablet() {
+            display: none;
+        }
+    }
+
+    &__cart {
+        position: relative;
+        @include flex(center, space-between);
+        cursor: pointer;
+
+        &__wrapper {
+            margin-right: 20px;
+            width: max-content;
+            height: 15px;
+            overflow: hidden;
+        }
+
+        &__item {
+            width: 100%;
+            height: 100%;
+            line-height: 15px;
+            font-size: 1.3rem;
+            text-transform: uppercase;
+            font-weight: 600;
+            transition: transform 0.5s linear;
+        }
+
+        &__quantity {
+            font-weight: 600;
+            font-size: 1.3rem;
+        }
+        
+        &:hover {
+            .header__cart__item:nth-child(1), .header__cart__item:nth-child(2) {
+                transform: translateY(-100%);
+            }
+        }
+    }
+}
+
+.home.active + .header {
+
+    .header__logo {
+        img:nth-child(1) {
+            transform: translateX(0) rotate(0);
+            transition-delay: 0.5s;
+        }
+
+        img:nth-child(2) {
+            transform: translateX(0) rotate(0);
+            transition-delay: 0.5s;
+        }
+    }
+}

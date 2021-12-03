@@ -1,0 +1,303 @@
+.cover {
+    position: fixed;
+    z-index: 90;
+    top: 0;
+    width: 100%;
+    color: white;
+    text-transform: uppercase;
+    background-color: $text_color;
+
+    height: 0;
+    visibility: hidden;
+    transition: all 0.5s ease-in;
+    transition-delay: 0.5s;
+
+    .container {
+        @include tablet() {
+            padding: 45px;
+        }
+
+        @include mobile() {
+            padding: 20px;
+        }
+
+        .wrapper {
+            padding: 0;
+        }
+    }
+    &__top {
+        @include flex(center, space-between);
+        margin-top: 3px;
+
+        @include tablet() {
+            margin-bottom: 80px;
+        }
+
+        @include mobile() {
+            margin-bottom: 40px;
+        }
+
+        &__logo {
+
+            @include tablet() {
+                width: 12vw;
+            }
+
+            @include mobile() {
+                width: 19vw;
+            }
+
+            img {
+                width: 100%;
+            }
+        }
+
+        &__cart {
+            @include flex(center, space-between);
+
+            span {
+                font-size: 1.4rem;
+            }
+
+            span ~ span {
+                margin-left: 10px;
+            }
+        }
+
+        &__logo, &__cart {
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease-in;;
+        }
+    }
+
+    &__tabs {
+        margin-bottom: 30px;
+        overflow: hidden;
+
+        &__text {
+            margin-bottom: 10px;
+            overflow: hidden;
+            span {
+                transform: translateY(100%);
+                transition: transform 0.3s linear;
+
+                @include tablet() {
+                    font-size: 1.5rem;
+                }
+
+                @include mobile() {
+                    font-size: 1.1rem;
+                }
+            }
+        }
+
+        &__move {
+            width: 0px;
+            height: 0.5px;
+            background-color: white;
+            transition: width 0.3s ease-in;;
+        }
+    }
+
+    .wrapper {
+        width: 50%;
+        margin-right: auto;
+
+        .nav {
+            @include flex(flex-start, space-between);
+            flex-direction: column;
+            margin-bottom: 30px;
+
+            li {
+                margin-bottom: 15px;
+                font-size: 2rem;
+                font-weight: 600;
+                overflow: hidden;
+
+                a {
+                    transform: translateY(100%);
+                    transition: transform 0.3s linear;
+    ;
+                }
+
+                @include tablet() {
+                    font-size: 3rem;
+                }
+
+                @include mobile() {
+                    font-size: 2rem;
+                }
+            }
+        }
+
+        .policy {
+            @include flex(flex-start, flex-start);
+            flex-wrap: wrap;
+            font-size: 1.5rem;
+
+            li {
+                width: 50%;
+                margin-bottom: 20px;
+                overflow: hidden;
+                a {
+                    width: 100%;
+                    transform: translateY(100%);
+                    transition: transform 0.3s linear;
+    ;
+                }
+            }
+        }
+
+        .social {
+            @include flex(flex-end, flex-start);
+            margin-top: 80px;
+            margin-bottom: 30px;
+
+            li {
+                overflow: hidden;
+                img {
+                    width: 60%;
+                    margin: auto;
+                    opacity: 0;
+                    transform: translateY(100%);
+                    transition: all 0.3s linear;
+
+                    @include tablet() {
+                        width: 30%;
+                    }
+
+                    @include mobile() {
+                        width: 60%;
+                    }
+                }
+            }
+
+            li:nth-child(1) {
+                flex: 1;
+            }
+
+            li:nth-child(2) {
+                flex: 1;
+            }
+
+            li:nth-child(3) {
+                flex: 2;
+
+                span {
+                    padding-bottom: 10px;
+                    font-size: 1.5rem;
+                    margin-top: 15px;
+                    transform: translateY(100%);
+                    opacity: 0;
+                    transition: all 0.3s linear;
+
+                    @include tablet() {
+                        margin-bottom: 0;
+                    }
+
+                    @include mobile() {
+                        margin-bottom: 10px;
+                    }
+                }
+            }
+        }
+    }
+
+    &__footer {
+        border-top: 1px solid white;
+        border-bottom: 1px solid white;
+        padding: 25px 0;
+        text-transform: initial;
+        font-size: 1.6rem;
+        opacity: 0;
+        transform: translateY(100%);
+        transition: all 0.3s linear;
+
+
+        span:nth-child(2) {
+            margin-left: 5px;
+        }
+
+        @include tablet() {
+            display: none;
+        }
+
+        @include mobile() {
+            display: block;
+        }
+    }
+
+    &.active {
+        height: 100%;
+        visibility: visible;
+        transition-delay: 0s;
+
+        .cover__top {
+
+            &__logo, &__cart {
+                opacity: 1;
+                visibility: visible;
+                transition-delay: 0.3s;
+            }
+        }
+
+        .cover__tabs {
+            &__text {
+                span {
+                    transform: translateY(0);
+                    transition-delay: 1s;
+                }
+            }
+
+            &__move {
+                transition-delay: 0.5s;
+                width: 100%;
+            }
+        }
+
+        .wrapper {
+            .nav {
+                li {
+                    a {
+                        transform: translateY(0);
+                        transition-delay: 1.1s;
+                    }
+                }
+            }
+
+            .policy {
+                li {
+                    a {
+                        transform: translateY(0);
+                        transition-delay: 1.2s;
+                    }
+                }
+            }
+
+            .social  {
+                li {
+                    img {
+                        opacity: 1;
+                        transform: translateY(0);
+                        transition-delay: 1.3s;
+                    }
+                }
+
+                li:nth-child(3) {
+                    span {
+                        opacity: 1;
+                        transform: translateY(0);
+                        transition-delay: 1.3s;
+                    }
+                }
+            }
+        }
+
+        .cover__footer {
+            opacity: 1;
+            transform: translateY(0);
+            transition-delay: 1.3s;
+        }
+    }
+}

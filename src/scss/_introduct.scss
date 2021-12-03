@@ -1,0 +1,62 @@
+.home__content__introduce {
+    width: 80%;
+    padding-right: 100px;
+    margin-left: auto;
+    color: #191919;
+    margin-bottom: 170px;
+
+    @include tablet() {
+        margin-bottom: 80px;
+    }
+
+    @include mobile() {
+        width: 100%;
+        padding-right: 0;
+        margin-bottom: 44px;
+    }
+
+    p {
+        font-size: 4vw;
+
+        @include tablet() {
+            font-size: 3.5vw;
+        }
+
+        @include tablet() {
+            font-size: 5vw;
+        }
+    }
+
+    &__questions {
+        @include flex(flex-start, space-between);
+
+        & > span {
+            font-size: 3.1rem;
+            text-decoration: underline;
+            height: 100%;
+            text-transform: uppercase;
+            
+            @include tablet() {
+                font-size: 2.5rem;
+                font-weight: 600;
+            }
+
+            @include tablet() {
+                font-size: 1.3rem;
+            }
+        }
+    }
+
+    span, p {
+        transform: translateY(10px);
+        opacity: 0;
+        transition: all 0.4s linear;
+    }
+
+    &.active {
+        span, p {
+            transform: translateY(0);
+            opacity: 1;
+        }
+    }
+}

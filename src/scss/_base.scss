@@ -1,0 +1,64 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+
+html {
+    font-size: 62.5%;
+    box-sizing: border-box;
+    overflow-x: hidden;
+}
+
+a {
+    color: unset;
+    text-decoration: none;
+}
+
+ul {
+    list-style: none;
+}
+
+a, span {
+    display: inline-block;
+}
+
+button {
+    border: none;
+    outline: none;
+}
+
+body {
+    font-family: 'Favorit', sans-serif;
+    color: $text_color;
+    font-weight: 500;
+    line-height: 1;
+    background-color: $bg_color;
+    overflow-x: hidden;
+    width: 100vw;
+}
+
+.container {
+    padding: 30px 50px 30px 30px;
+
+    @include tablet() {
+        padding: 25px;
+    }
+
+    @include mobile() {
+        padding: 20px;
+    }
+}
+
+.wrapper {
+    padding: 0 150px 40px 65px;
+
+    @include tablet() {
+        padding: 0 50px 40px 30px;
+    }
+
+    @include tablet() {
+        padding: 0 20px 20px 20px;
+    }
+}
+

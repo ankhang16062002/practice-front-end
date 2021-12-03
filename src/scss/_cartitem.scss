@@ -1,0 +1,97 @@
+.cart-item {
+    width: 100%;
+    background-color: $pink_bg;
+    border: 2px solid $text_color;
+    overflow: hidden;
+
+    @include mobile() {
+        border: 1px solid $text_color;
+    }
+
+    &__wrapper {
+        padding: 0 40px 40px 40px;
+
+        @include tablet() {
+            padding: 0 20px 20px 20px;
+        }
+    }
+
+    &__img {
+        width: 100%;
+        margin: auto;
+        position: relative;
+        padding-top: 100%;
+        margin-top: -30px;
+
+        @include tablet() {
+            margin-top: -15px;
+        }
+
+        img {
+            position: absolute;
+            height: 100%;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+    }
+
+    &__content {
+        @include flex(center, flex-start);
+        flex-direction: column;
+        
+        &__logo {
+            width: 90px;
+            margin-bottom: 10px;
+
+            @include mobile() {
+                width: 70px;
+            }
+        }
+
+        &__size {
+            font-size: 1.4rem;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+
+        &__name {
+            font-family: "Yellowtail", cursive;
+            text-transform: uppercase;
+            font-size: 4vw;
+            margin-bottom: 15px;
+
+            @include mobile() {
+                font-weight: 600;
+            }
+
+        }
+
+        &__price--old {
+            font-size: 2rem;
+            margin-bottom: 10px;
+            text-decoration: line-through;
+
+            @include tablet() {
+                font-size: 2vw;
+            }
+
+            @include mobile() {
+                font-size: 3vw;
+            }
+        }
+
+        &__price--new {
+            font-size: 3rem;
+            font-weight: 600;
+
+            @include tablet() {
+                font-size: 2.5vw;
+            }
+
+            @include mobile() {
+                font-size: 3.5vw;
+            }
+        }
+    }
+}
